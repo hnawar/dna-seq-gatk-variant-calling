@@ -50,7 +50,7 @@ rule map_reads:
 
 rule mark_duplicates:
     input:
-        "results/mapped/{sample}-{unit}.sorted.bam",
+        bams="results/mapped/{sample}-{unit}.sorted.bam",
     output:
         bam=temp("results/dedup/{sample}-{unit}.bam"),
         metrics="results/qc/dedup/{sample}-{unit}.metrics.txt",
