@@ -120,4 +120,4 @@ rule get_vep_plugins:
     params:
         release=config["ref"]["release"],
     wrapper:
-        "0.74.0/bio/vep/plugins"
+        "v1.29.0/bio/vep/plugins"
