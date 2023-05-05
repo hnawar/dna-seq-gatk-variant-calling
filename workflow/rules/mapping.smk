@@ -41,11 +41,13 @@ rule map_reads:
     params:
         index=lambda w, input: os.path.splitext(input.idx[0])[0],
         extra=get_read_group,
-        sort="samtools",
+        sorting="samtools",
         sort_order="coordinate",
     threads: 8
     wrapper:
         "v1.29.0/bio/bwa/mem"
+
+
 
 
 rule mark_duplicates:
@@ -58,7 +60,7 @@ rule mark_duplicates:
         "logs/picard/dedup/{sample}-{unit}.log",
     params:
         config["params"]["picard"]["MarkDuplicates"],
-        extra="--ASSUME_SORTED true",
+        extra="--ASSUME_SORT_ORDER coordinate true --REMOVE_DUPLICATES true",
     wrapper:
         "v1.29.0/bio/picard/markduplicates"
 
