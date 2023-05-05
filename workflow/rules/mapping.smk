@@ -58,6 +58,7 @@ rule mark_duplicates:
         "logs/picard/dedup/{sample}-{unit}.log",
     params:
         config["params"]["picard"]["MarkDuplicates"],
+        extra="--ASSUME_SORTED true",
     wrapper:
         "v1.29.0/bio/picard/markduplicates"
 
