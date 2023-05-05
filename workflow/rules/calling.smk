@@ -30,7 +30,7 @@ rule call_variants:
     params:
         extra=get_call_variants_params,
     wrapper:
-        "0.59.0/bio/gatk/haplotypecaller"
+        "v1.29.0/bio/gatk/haplotypecaller"
 
 
 rule combine_calls:
@@ -44,7 +44,7 @@ rule combine_calls:
     log:
         "logs/gatk/combinegvcfs.{contig}.log",
     wrapper:
-        "0.74.0/bio/gatk/combinegvcfs"
+        "v1.29.0/bio/gatk/combinegvcfs"
 
 
 rule genotype_variants:
@@ -58,7 +58,7 @@ rule genotype_variants:
     log:
         "logs/gatk/genotypegvcfs.{contig}.log",
     wrapper:
-        "0.74.0/bio/gatk/genotypegvcfs"
+        "v1.29.0/bio/gatk/genotypegvcfs"
 
 
 rule merge_variants:

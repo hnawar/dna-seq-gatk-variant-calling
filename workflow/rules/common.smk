@@ -86,6 +86,14 @@ def get_sample_bams(wildcards):
         unit=units.loc[wildcards.sample].unit,
     )
 
+def get_sample_bais(wildcards):
+    """Get all aligned reads indeces of given sample."""
+    return expand(
+        "results/recal/{sample}-{unit}.bam.bai",
+        sample=wildcards.sample,
+        unit=units.loc[wildcards.sample].unit,
+    )
+
 
 def get_regions_param(regions=config["processing"].get("restrict-regions"), default=""):
     if regions:
