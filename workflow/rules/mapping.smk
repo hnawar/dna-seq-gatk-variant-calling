@@ -70,6 +70,7 @@ rule recalibrate_base_qualities:
         bam=get_recal_input(),
         bai=get_recal_input(bai=True),
         ref="resources/genome.fasta",
+        fai="resources/genome.fasta.fai",
         dict="resources/genome.dict",
         known="resources/variation.noiupac.vcf.gz",
         known_idx="resources/variation.noiupac.vcf.gz.tbi",
