@@ -82,7 +82,7 @@ rule tabix_known_variants:
         "-p vcf",
     cache: True
     wrapper:
-        "v1.29.0/bio/tabix"
+        "v1.29.0/bio/tabix/index"
 
 
 rule bwa_index:
