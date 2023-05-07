@@ -38,6 +38,7 @@ rule call_variants:
 rule combine_calls:
     input:
         ref="resources/genome.fasta",
+        fai="resources/genome.fasta.fai",
         gvcfs=expand(
             "results/called/{sample}.{{contig}}.g.vcf.gz", sample=samples.index
         ),
