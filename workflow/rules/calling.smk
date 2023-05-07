@@ -14,6 +14,7 @@ if "restrict-regions" in config["processing"]:
 rule call_variants:
     input:
         bam=get_sample_bams,
+        bai=get_sample_bais,
         ref="resources/genome.fasta",
         idx="resources/genome.dict",
         known="resources/variation.noiupac.vcf.gz",
@@ -28,7 +29,7 @@ rule call_variants:
     log:
         "logs/gatk/haplotypecaller/{sample}.{contig}.log",
     params:
-        extra=get_call_variants_params,
+        #extra=get_call_variants_params,
     wrapper:
         "v1.29.0/bio/gatk/haplotypecaller"
 
