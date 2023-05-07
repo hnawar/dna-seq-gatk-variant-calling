@@ -1,6 +1,7 @@
 rule select_calls:
     input:
         ref="resources/genome.fasta",
+        dict="resources/genome.dict",
         vcf="results/genotyped/all.vcf.gz",
         tbi="results/genotyped/all.vcf.gz.tbi",
     output:
