@@ -7,6 +7,7 @@ rule select_calls:
         tbi="results/genotyped/all.vcf.gz.tbi",
     output:
         vcf=temp("results/filtered/all.{vartype}.vcf.gz"),
+        tbi=temp("results/filtered/all.{vartype}.vcf.gz.tbi"),
     params:
         extra=get_vartype_arg,
     log:
@@ -19,6 +20,7 @@ rule hard_filter_calls:
     input:
         ref="resources/genome.fasta",
         vcf="results/filtered/all.{vartype}.vcf.gz",
+        tbi="results/filtered/all.{vartype}.vcf.gz.tbi",
     output:
         vcf=temp("results/filtered/all.{vartype}.hardfiltered.vcf.gz"),
     params:

@@ -137,7 +137,7 @@ def get_snpeff_reference():
 
 
 def get_vartype_arg(wildcards):
-    return "--select-type-to-include {}".format(
+    return "--create-output-variant-index --select-type-to-include {}".format(
         "SNP" if wildcards.vartype == "snvs" else "INDEL"
     )
 
