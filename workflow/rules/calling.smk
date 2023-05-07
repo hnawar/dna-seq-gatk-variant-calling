@@ -16,6 +16,7 @@ rule call_variants:
         bam=get_sample_bams,
         bai=get_sample_bais,
         ref="resources/genome.fasta",
+        fai="resources/genome.fasta.fai",
         idx="resources/genome.dict",
         known="resources/variation.noiupac.vcf.gz",
         tbi="resources/variation.noiupac.vcf.gz.tbi",
