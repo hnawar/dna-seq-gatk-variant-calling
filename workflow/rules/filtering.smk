@@ -2,6 +2,7 @@ rule select_calls:
     input:
         ref="resources/genome.fasta",
         vcf="results/genotyped/all.vcf.gz",
+        tbi="results/genotyped/all.vcf.gz.tbi",
     output:
         vcf=temp("results/filtered/all.{vartype}.vcf.gz"),
     params:

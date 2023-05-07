@@ -81,6 +81,7 @@ rule merge_variants:
         ),
     output:
         vcf="results/genotyped/all.vcf.gz",
+        tbi="results/genotyped/all.vcf.gz.tbi",
     log:
         "logs/picard/merge-genotyped.log",
     wrapper:
