@@ -30,7 +30,7 @@ rule call_variants:
     log:
         "logs/gatk/haplotypecaller/{sample}.{contig}.log",
     params:
-        #extra=get_call_variants_params,
+        extra=" --create-output-variant-index ",
     wrapper:
         "v1.29.0/bio/gatk/haplotypecaller"
 
@@ -42,6 +42,9 @@ rule combine_calls:
         dict="resources/genome.dict",
         gvcfs=expand(
             "results/called/{sample}.{{contig}}.g.vcf.gz", sample=samples.index
+        ),
+        tbis=expand(
+            "results/called/{sample}.{{contig}}.g.vcf.gz.tbi", sample=samples.index
         ),
     output:
         gvcf="results/called/all.{contig}.g.vcf.gz",
