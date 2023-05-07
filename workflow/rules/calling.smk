@@ -27,6 +27,7 @@ rule call_variants:
         ),
     output:
         gvcf=protected("results/called/{sample}.{contig}.g.vcf.gz"),
+        tbi=protected("results/called/{sample}.{contig}.g.vcf.gz.tbi"),
     log:
         "logs/gatk/haplotypecaller/{sample}.{contig}.log",
     params:
