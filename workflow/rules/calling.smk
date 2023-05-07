@@ -49,8 +49,11 @@ rule combine_calls:
         ),
     output:
         gvcf="results/called/all.{contig}.g.vcf.gz",
+        tbi="results/called/all.{contig}.g.vcf.gz.tbi",
     log:
         "logs/gatk/combinegvcfs.{contig}.log",
+    params:
+        extra=" --create-output-variant-index ",
     wrapper:
         "v1.29.0/bio/gatk/combinegvcfs"
 
