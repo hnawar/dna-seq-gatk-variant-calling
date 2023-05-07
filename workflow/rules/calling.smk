@@ -63,6 +63,7 @@ rule genotype_variants:
         ref="resources/genome.fasta",
         dict="resources/genome.dict",
         gvcf="results/called/all.{contig}.g.vcf.gz",
+        tbi="results/called/all.{contig}.g.vcf.gz.tbi",
     output:
         vcf=temp("results/genotyped/all.{contig}.vcf.gz"),
     params:
