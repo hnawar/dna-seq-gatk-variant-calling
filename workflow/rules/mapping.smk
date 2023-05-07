@@ -92,12 +92,13 @@ rule apply_base_quality_recalibration:
         bam=get_recal_input(),
         bai=get_recal_input(bai=True),
         ref="resources/genome.fasta",
+        fai="resources/genome.fasta.fai",
         dict="resources/genome.dict",
         recal_table="results/recal/{sample}-{unit}.grp",
     output:
         bam=protected("results/recal/{sample}-{unit}.bam"),
     log:
-        "logs/gatk/bqsr/{sample}-{unit}.log",
+        "logs/gatk/apply-bqsr/{sample}-{unit}.log",
     params:
         extra=get_regions_param(),
     resources:
