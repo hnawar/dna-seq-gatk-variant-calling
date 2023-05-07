@@ -81,7 +81,8 @@ rule recalibrate_base_qualities:
     params:
         extra=get_regions_param() + config["params"]["gatk"]["BaseRecalibrator"],
     resources:
-        mem_mb=1024,
+        mem_mb=2048,
+        cores=4
     wrapper:
         "v1.29.0/bio/gatk/baserecalibrator"
 
@@ -96,7 +97,7 @@ rule apply_base_quality_recalibration:
     output:
         bam=protected("results/recal/{sample}-{unit}.bam"),
     log:
-        "logs/gatk/apply-bqsr/{sample}-{unit}.log",
+        "logs/gatk/bqsr/{sample}-{unit}.log",
     params:
         extra=get_regions_param(),
     resources:
