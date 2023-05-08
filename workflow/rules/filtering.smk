@@ -19,6 +19,7 @@ rule select_calls:
 rule hard_filter_calls:
     input:
         ref="resources/genome.fasta",
+        fai="resources/genome.fasta.fai",
         dict="resources/genome.dict",
         vcf="results/filtered/all.{vartype}.vcf.gz",
         tbi="results/filtered/all.{vartype}.vcf.gz.tbi",
