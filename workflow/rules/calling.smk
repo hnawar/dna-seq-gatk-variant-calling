@@ -61,6 +61,7 @@ rule combine_calls:
 rule genotype_variants:
     input:
         ref="resources/genome.fasta",
+        fai="resources/genome.fasta.fai",
         dict="resources/genome.dict",
         gvcf="results/called/all.{contig}.g.vcf.gz",
         tbi="results/called/all.{contig}.g.vcf.gz.tbi",
